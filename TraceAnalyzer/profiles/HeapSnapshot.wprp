@@ -1,0 +1,46 @@
+<WindowsPerformanceRecorder Version="1.0">
+  <Profiles>
+    <SystemCollector Id="WPR_initiated_WprApp_WPR_System_Collector" Name="WPR_initiated_WprApp_WPR System Collector">
+      <BufferSize Value="1024" />
+      <Buffers Value="20" />
+    </SystemCollector>
+    <EventCollector Id="WPR_initiated_WprApp_WPR_Event_Collector" Name="WPR_initiated_WprApp_WPR Event Collector">
+      <BufferSize Value="1024" />
+      <Buffers Value="20" />
+    </EventCollector>
+    <SystemProvider Id="WPR_initiated_WprApp_WPR_System_Collector_Provider">
+      <Keywords>
+        <Keyword Value="Loader" />
+      </Keywords>
+    </SystemProvider>
+    <EventProvider Id="WPR_initiated_WprApp_WPR_Event_Collector_901d2afa-4ff6-46d7-8d0e-53645e1a47f5" Name="901d2afa-4ff6-46d7-8d0e-53645e1a47f5" />
+    <Profile Id="HeapSnapshot.Verbose.File" Name="HeapSnapshot" Description="RunningProfile:HeapSnapshot.Verbose.File" LoggingMode="File" DetailLevel="Verbose">
+      <ProblemCategories>
+        <ProblemCategory Value="Resource Analysis" />
+      </ProblemCategories>
+      <Collectors>
+        <SystemCollectorId Value="WPR_initiated_WprApp_WPR_System_Collector">
+          <SystemProviderId Value="WPR_initiated_WprApp_WPR_System_Collector_Provider" />
+        </SystemCollectorId>
+        <EventCollectorId Value="WPR_initiated_WprApp_WPR_Event_Collector">
+          <EventProviders>
+            <EventProviderId Value="WPR_initiated_WprApp_WPR_Event_Collector_901d2afa-4ff6-46d7-8d0e-53645e1a47f5" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+      <TraceMergeProperties>
+        <TraceMergeProperty Id="BaseLightTraceMergeProperties" Name="BaseTraceMergeProperties">
+          <DeletePreMergedTraceFiles Value="true" />
+          <FileCompression Value="false" />
+          <InjectOnly Value="false" />
+          <SkipMerge Value="false" />
+          <CustomEvents>
+            <CustomEvent Value="ImageId" />
+            <CustomEvent Value="BuildInfo" />
+            <CustomEvent Value="EventMetadata" />
+          </CustomEvents>
+        </TraceMergeProperty>
+      </TraceMergeProperties>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>

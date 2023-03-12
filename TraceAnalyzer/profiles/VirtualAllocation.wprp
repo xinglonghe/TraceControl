@@ -1,0 +1,48 @@
+<WindowsPerformanceRecorder Version="1.0">
+  <Profiles>
+    <SystemCollector Id="WPR_initiated_WprApp_WPR_System_Collector" Name="WPR_initiated_WprApp_WPR System Collector">
+      <BufferSize Value="1024" />
+      <Buffers Value="20" />
+    </SystemCollector>
+    <EventCollector Id="WPR_initiated_WprApp_WPR_Event_Collector" Name="WPR_initiated_WprApp_WPR Event Collector">
+      <BufferSize Value="1024" />
+      <Buffers Value="20" />
+    </EventCollector>
+    <SystemProvider Id="WPR_initiated_WprApp_WPR_System_Collector_Provider">
+      <Keywords>
+        <Keyword Value="Loader" />
+        <Keyword Value="VirtualAllocation" />
+      </Keywords>
+      <Stacks>
+        <Stack Value="VirtualAllocation" />
+      </Stacks>
+    </SystemProvider>
+    <Profile Id="VirtualAllocation.Verbose.File" Name="VirtualAllocation" Description="RunningProfile:VirtualAllocation.Verbose.File" LoggingMode="File" DetailLevel="Verbose">
+      <ProblemCategories>
+        <ProblemCategory Value="Resource Analysis" />
+      </ProblemCategories>
+      <Collectors>
+        <SystemCollectorId Value="WPR_initiated_WprApp_WPR_System_Collector">
+          <SystemProviderId Value="WPR_initiated_WprApp_WPR_System_Collector_Provider" />
+        </SystemCollectorId>
+      </Collectors>
+      <TraceMergeProperties>
+        <TraceMergeProperty Id="BaseVerboseTraceMergeProperties" Name="BaseTraceMergeProperties">
+          <DeletePreMergedTraceFiles Value="true" />
+          <FileCompression Value="false" />
+          <InjectOnly Value="false" />
+          <SkipMerge Value="false" />
+          <CustomEvents>
+            <CustomEvent Value="ImageId" />
+            <CustomEvent Value="BuildInfo" />
+            <CustomEvent Value="VolumeMapping" />
+            <CustomEvent Value="EventMetadata" />
+            <CustomEvent Value="PerfTrackMetadata" />
+            <CustomEvent Value="WinSAT" />
+            <CustomEvent Value="NetworkInterface" />
+          </CustomEvents>
+        </TraceMergeProperty>
+      </TraceMergeProperties>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>
